@@ -7,7 +7,8 @@ char	*ft_strndup(const char *s, size_t n);
 */
 int		main(void)
 {
-	const char	*str = "salut les %d copains %.+3d dwadi %%%d awd %deyt";
+//	const char	*str = "salut les %d copains %.+3d dwadi %%%d awd %deyt";
+	const char	*str = "salut les % hZ  copains %.+3d dwadi %%%d awd %deyt";
 //	const char	*str = "salut les copains";
 	int			st;
 //	char		**tab;

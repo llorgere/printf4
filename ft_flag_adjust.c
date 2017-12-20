@@ -23,7 +23,7 @@ flag_type	ft_flag_adjust(flag_type flag)
 			(flag.conv_num >= 32 && flag.conv_num <= 35) ||
 			(flag.conv_num >= 37 && flag.conv_num <= 41)))
 		flag.plus = 0;
-	if (flag.space == 1 && ((flag.conv_num >= 2 && flag.conv_num <= 7) ||
+	if (flag.space == 1 && (flag.conv_num == 0 || (flag.conv_num >= 2 && flag.conv_num <= 7) ||
 			(flag.conv_num >= 10 && flag.conv_num <= 15) ||
 			(flag.conv_num >= 17 && flag.conv_num <= 20) ||
 			(flag.conv_num >= 22 && flag.conv_num <= 25) ||

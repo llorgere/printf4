@@ -37,6 +37,11 @@ typedef struct
 	int				zero;
 	int				space;
 	int				point;
+	int				h;
+	int				j;
+	int				z;
+	int				l;
+	char			*tab;
 }					flag_type;
 
 typedef struct		s_list

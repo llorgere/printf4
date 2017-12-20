@@ -505,7 +505,7 @@ char	*ft_nowipr(char *str, flag_type flag, int len)
 
 char	*ft_nowinopr(char *str, flag_type flag, int len)
 {
-//	printf("test de nowinopr\n");
+//	printf("test de nowinopr et str est[%s]\n", str);
 	if (flag.dies == 1)
 	{
 		return (ft_add_dies(str, flag, len));
@@ -545,16 +545,18 @@ char	*ft_flag_use(char *str, flag_type flag)
 {
 	int		len;
 
+//	printf("test boucle 1\n");
 	len = ft_strlen(str);
+//	printf("test boucle 2\n");
 	flag = ft_flag_adjust(flag);
 //	printf("test des valeurs des flags\ncn : [%d] | wi : [%d] | pr : [%d] | - : [%d] | + : [%d] | # : [%d] | 0 : [%d] | sp : [%d] | . : [%d] | et str est [%s]\n", flag.conv_num, flag.width, flag.preci, flag.minus, flag.plus, flag.dies, flag.zero, flag.space, flag.point, str);
 /*	if (flag.conv_num == 6 || flag.conv_num == 14)
 		return (ft_special_c(str, flag));
 */	if (flag.width <= 0 && flag.preci < 0)
 		return (ft_nowinopr(str, flag, len));
-	if (flag.width <= 0 && flag.preci >= 0)
+	else if (flag.width <= 0 && flag.preci >= 0)
 		return (ft_nowipr(str, flag, len));
-	if (flag.width > 0 && flag.preci < 0)
+	else if (flag.width > 0 && flag.preci < 0)
 		return (ft_winopr(str, flag, len));
 	else
 		return (ft_wipr(str, flag, len));

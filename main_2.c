@@ -104,6 +104,8 @@ int		main()
 	ft_printf("[%-5+d]\n", 42);
 	printf("[%-5+d]\n", -42);
 	ft_printf("[%-5+d]\n", -42);
-*/	ft_printf("%####0000 33..1d", 256);
+*/	//ft_printf("%####0000 33..1d", 256);
+	printf("% Z %s", "test\n");
+	ft_printf("% Z %s", "test\n");
 	return (0);
 }

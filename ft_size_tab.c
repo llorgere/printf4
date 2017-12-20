@@ -43,8 +43,18 @@ int		ft_size_tab(const char *str)
 			while (tmp[i] != 'd' && tmp[i] != 'i' && tmp[i] != 's' && tmp[i] != 'p' && tmp[i] != 'S' && tmp[i] !='D' && tmp[i] !='U' && tmp[i] !='O' && tmp[i] != 'o' && tmp[i] !='u' && tmp[i] !='x' && tmp[i] !='X' && tmp[i] !='c' && tmp[i] !='C'  && tmp[i] !='\0' && tmp[i] != '%')
 			{
 //				printf("test de ft_size_tab 6.1 et tmp[i] est [%c]\n", tmp[i]);
-				i++;
-//				printf("test de ft_size_tab 6.2 et tmp[i] est [%c]\n", tmp[i]);
+				if (tmp[i] == '+' || tmp[i] == ' ' || tmp[i] == '#' || tmp[i] == '-' || tmp[i] == '.' || (tmp[i] >= '0' && tmp[i] <= '9') || tmp[i] == 'h' || tmp[i] == 'j' || tmp[i] == 'z' || tmp[i] == 'l')
+					i++;
+				else
+				{
+					i++;
+					while (tmp[i] != '\0' && tmp[i] != '%')
+						i++;
+					if(tmp[i] == '%')
+						i--;
+					break;
+				}
+		//		printf("test de ft_size_tab 6.2 et tmp[i] est [%c]\n", tmp[i]);
 			}
 /*			if(tmp[i] == '%');
 				i++;
