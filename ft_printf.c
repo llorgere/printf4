@@ -41,7 +41,10 @@ int		ft_printf(const char *format, ...)
 				if (flag.tab == NULL)
 					cur_arg = ft_strdup(wiit.tab[i]);
 				else
+				{
 					cur_arg = ft_strdup(flag.tab);
+					free(flag.tab);
+				}
 				ret = ret + ft_strlen(cur_arg) ;
 				ft_putstr(cur_arg);
 //				free(cur_arg);
