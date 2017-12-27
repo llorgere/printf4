@@ -105,7 +105,7 @@ int		main()
 	printf("[%-5+d]\n", -42);
 	ft_printf("[%-5+d]\n", -42);
 */	//ft_printf("%####0000 33..1d", 256);
-	printf("% Z %s", "test\n");
-	ft_printf("% Z %s", "test\n");
+	printf("%3.2s\n", "test");
+	ft_printf("%3.2s\n", "test");
 	return (0);
 }

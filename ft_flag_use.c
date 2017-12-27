@@ -527,7 +527,7 @@ char	*ft_wipr(char *str, flag_type flag, int len)
 	char	*tmp;
 
 //	printf("test de wipr\n");
-	if (flag.width <= len)
+	if (flag.width <= len && flag.conv_num != 7 && flag.conv_num != 18)
 		return (ft_nowipr(str, flag, len));
 	else
 	{
