@@ -12,10 +12,11 @@
 
 #include "libftprintf.h"
 
-char	*ft_wintdup(wchar_t s)
+char	*ft_wintdup(wchar_t s, flag_type *flag)
 {
 	char	*moc;
-
+	if (s > 255)
+		flag->W = 0;
 	moc = (char*)malloc(sizeof(wchar_t) * (2));
 	if (!moc)
 		return (NULL);

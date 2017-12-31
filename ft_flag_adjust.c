@@ -1,7 +1,19 @@
 #include <libftprintf.h>
-
+static	flag_type	ft_flag_reset(flag_type flag)
+{
+	flag.zero = 0;
+	flag.space = 0;
+	flag.plus = 0;
+	flag.minus = 0;
+	flag.width = 0;
+	flag.preci = -1;
+	flag.dies = 0;
+	return (flag);
+}
 flag_type	ft_flag_adjust(flag_type flag)
 {
+	if(flag.conv_num == 41)
+		return (ft_flag_reset(flag));
 	if (flag.zero == 1 && flag.minus == 1)
 		flag.zero = 0;
 	if (flag.space == 1 && flag.plus == 1)

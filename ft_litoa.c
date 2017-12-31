@@ -6,13 +6,13 @@ static char	*ft_litoa_min(long int n)
 	char	*tab;
 
 	j = 0;
-	if (!(tab = (char *)malloc(sizeof(*tab) * (12))))
+	if (!(tab = (char *)malloc(sizeof(*tab) * (21))))
 		return (0);
 	tab[0] = '-';
-	tab[11] = '\0';
-	tab[10] = '8';
+	tab[20] = '\0';
+	tab[19] = '8';
 	n = -(n / 10);
-	j = 10;
+	j = 19;
 	while (n > 0)
 	{
 		tab[j - 1] = (n % 10) + 48;
@@ -52,7 +52,7 @@ char		*ft_litoa(long int n)
 
 	i = n;
 	j = 0;
-	if (n == -2147483648)
+	if (n == LONG_MIN)
 		return (ft_litoa_min(n));
 	else if (i <= 0)
 	{

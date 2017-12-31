@@ -446,7 +446,7 @@ char	*ft_nowipr(char *str, flag_type flag, int len)
 
 //	printf("test de nowipr\n");
 	i = 0;
-	if (flag.conv_num == 7 || flag.conv_num == 18)
+	if (flag.conv_num == 7 || flag.conv_num == 15)
 	{
 		if (flag.preci >= len)
 			return (ft_nowinopr(str, flag, len));
@@ -527,7 +527,7 @@ char	*ft_wipr(char *str, flag_type flag, int len)
 	char	*tmp;
 
 //	printf("test de wipr\n");
-	if (flag.width <= len && flag.conv_num != 7 && flag.conv_num != 18)
+	if (flag.width <= len && flag.conv_num != 7 && flag.conv_num != 15)
 		return (ft_nowipr(str, flag, len));
 	else
 	{
@@ -552,7 +552,9 @@ char	*ft_flag_use(char *str, flag_type flag)
 //	printf("test des valeurs des flags\ncn : [%d] | wi : [%d] | pr : [%d] | - : [%d] | + : [%d] | # : [%d] | 0 : [%d] | sp : [%d] | . : [%d] | et str est [%s]\n", flag.conv_num, flag.width, flag.preci, flag.minus, flag.plus, flag.dies, flag.zero, flag.space, flag.point, str);
 /*	if (flag.conv_num == 6 || flag.conv_num == 14)
 		return (ft_special_c(str, flag));
-*/	if (flag.width <= 0 && flag.preci < 0)
+*///	if ((flag.W > -1 && flag.preci < 0) || (flag.W > -1 && flag.preci > flag.W))
+//		return (NULL);
+	if (flag.width <= 0 && flag.preci < 0)
 		return (ft_nowinopr(str, flag, len));
 	else if (flag.width <= 0 && flag.preci >= 0)
 		return (ft_nowipr(str, flag, len));

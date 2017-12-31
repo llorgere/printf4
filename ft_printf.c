@@ -31,10 +31,11 @@ int		ft_printf(const char *format, ...)
 //			printf("wiit.tab[i] est [%s]", wiit.tab[i]);
 			flag = ft_arg_conv(wiit.tab[i]); 
 //			printf("test des valeurs des flags\ncn : [%d] | wi : [%d] | pr : [%d] | - : [%d] | + : [%d] | # : [%d] | 0 : [%d] | sp : [%d] | . : [%d] |\n", flag.conv_num, flag.width, flag.preci, flag.minus, flag.plus, flag.dies, flag.zero, flag.space, flag.point);
-			cur_arg = ft_what_type(flag.conv_num, ap);
+			cur_arg = ft_what_type(flag.conv_num, ap, &flag);
 //			printf("wiit.tab[i] est [%s]", wiit.tab[i]);
 //			printf("cur_arg est [%c%c]", cur_arg[0], cur_arg[1]);
-//			printf("str est [%s]\n", cur_arg);
+		//	printf("str est [%s]\n", cur_arg);
+		//	printf("flag.w est [%d] && cura_arg[flag.w - 1] est [%c]\n", flag.W, cur_arg[flag.W - 1]);
 			if(flag.conv_num == -1)
 			{
 //				printf("1 l'argument est [%s]\n", cur_arg);
@@ -48,6 +49,21 @@ int		ft_printf(const char *format, ...)
 				ret = ret + ft_strlen(cur_arg) ;
 				ft_putstr(cur_arg);
 //				free(cur_arg);
+			}
+			else if ((flag.W > -1 && flag.preci == -1) || (flag.W > -1 && flag.preci > flag.W))
+			{
+				free(cur_arg);
+	//			i++;
+				while(wiit.tab[i])
+				{
+					free(wiit.tab[i]);
+					i++;
+				}
+			//	free(wiit.tab[i]);
+				va_end(ap);
+				free(wiit.pos_conv);
+				free(wiit.tab);
+				return (ret);
 			}
 			else if (flag.conv_num == 6 || flag.conv_num == 14)
 			{
@@ -66,7 +82,8 @@ int		ft_printf(const char *format, ...)
 	//		printf("3 l'argument est [%s]\n", cur_arg);
 				cur_arg = ft_flag_use(cur_arg, flag);
 	//			printf("3.1 l'argument est [%s]\n", cur_arg);
-				ret = ret + ft_strlen(cur_arg) ;
+				ret = ret + ft_strlen(cur_arg);
+
 				ft_putstr(cur_arg);
 //				free(cur_arg);
 			}

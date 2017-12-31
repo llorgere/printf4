@@ -1,6 +1,6 @@
 #include "libftprintf.h"
 
-char	*ft_what_type(int n, va_list ap)
+char	*ft_what_type(int n, va_list ap, flag_type *flag)
 {
 	if(n == 1)
 	{
@@ -56,11 +56,11 @@ char	*ft_what_type(int n, va_list ap)
 	}
 	else if (n == 14)
 	{
-		return (ft_wintdup(va_arg(ap, wint_t)));
+		return (ft_wintdup(va_arg(ap, wint_t), flag));
 	}
 	else if (n == 15)
 	{
-		return (ft_wchardup(va_arg(ap, wchar_t*)));
+		return (ft_wchardup(va_arg(ap, wchar_t*), flag));
 	}
 	else if (n == 16)
 	{

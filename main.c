@@ -1,12 +1,8 @@
 #include <stdio.h>
-#include "libft.h"
+#include "libftprintf.h"
 
 int		main(void)
 {
-	printf("test string\n");
-	ft_printf("test string\n");
-	printf("test var string %s\n");
-	printf("test var decimal %d\n");
-	printf("tst var char %c\n");
+	printf("{%0#-+ 50.10%}\n", 0);
 	return (0);
 }

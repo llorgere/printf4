@@ -291,6 +291,7 @@ flag_type		ft_arg_conv(char *tab)
 	flag.l = 0;
 	flag.z = 0;
 	flag.tab = NULL;
+	flag.W = -1;
 
 	while (tab[i] != 'd' && tab[i] != 'i' && tab[i] != 's' &&
 			tab[i] != 'p' && tab[i] != 'S' && tab[i] !='D' &&

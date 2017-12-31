@@ -42,6 +42,7 @@ typedef struct
 	int				z;
 	int				l;
 	char			*tab;
+	int				W;
 }					flag_type;
 
 typedef struct		s_list
@@ -80,7 +81,7 @@ char				*ft_flag_use(char *str, flag_type flag);
 flag_type			ft_flag_adjust(flag_type flag);
 int					ft_printf(const char *format, ...);
 flag_type			ft_arg_conv(char *tab);
-char				*ft_what_type(int n, va_list ap);
+char				*ft_what_type(int n, va_list ap, flag_type* flag);
 char				*ft_strndup(const char *s, size_t n);
 wii					ft_watinit(const char *arg0, int sizetab);
 int					ft_size_tab(const char *str);
@@ -188,8 +189,8 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 char				*ft_chardup(unsigned char s);
-char				*ft_wchardup(wchar_t *s);
-char				*ft_wintdup(wchar_t s);
+char				*ft_wchardup(wchar_t *s, flag_type *flag);
+char				*ft_wintdup(wchar_t s, flag_type *flag);
 char				*ft_p_conv(long long unsigned int s);
 
 #endif

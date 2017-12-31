@@ -25,10 +25,10 @@ static char	*ft_wchardup_null()
 	tab[4] = 'l';
 	tab[5] = ')';
 	tab[6] = '\0';
-	return (NULL);
+	return (tab);
 }
 
-char	*ft_wchardup(wchar_t *s)
+char	*ft_wchardup(wchar_t *s, flag_type *flag)
 {
 	int		i;
 	int		j;
@@ -38,6 +38,7 @@ char	*ft_wchardup(wchar_t *s)
 		return (ft_wchardup_null());
 	i = 0;
 	j = 0;
+//	printf("wchardup 1 flag.w est [%d]\n", flag->W);
 	while (s[i] != '\0')
 		i++;
 	moc = (char*)malloc(sizeof(wchar_t) * (i));
@@ -45,9 +46,15 @@ char	*ft_wchardup(wchar_t *s)
 		return (NULL);
 	while (j < i)
 	{
+		if(s[j] > 255 && flag->W == -1)
+		{
+		//	printf("test du if boucle wchardup\n");
+			flag->W = j;
+		}
 		moc[j] = s[j];
 		j++;
 	}
+//	printf("wchardup 2 flag.w est [%d]\n", flag->W);
 	moc[j] = '\0';
 	return (moc);
 }
